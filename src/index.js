@@ -6,11 +6,17 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import ErrorContextProvider from './contexts/ErrorContext';
+import AuthContextProvider from './contexts/AuthContext';
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <ErrorContextProvider>
+        <AuthContextProvider>
+          <App />
+        </AuthContextProvider>
+      </ErrorContextProvider>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
